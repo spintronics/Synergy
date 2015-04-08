@@ -1,64 +1,16 @@
 if(Meteor.isClient) {
   Meteor.startup(function() {
-    window.model = {
-      getTopics: function() {
-        return Topics.find().fetch()
-      },
-      addTopic: function(name) {
-        if(!Topics.find({name: name}).fetch().length){
-          Topics.insert({
-            name: name,
-            content: []
-          })
-        }
-      },
-      addContent: function(content, path) {
-        path = path.split('/')
-        var topic = Topics.find({name: path[0]})
-        debugger
-        var topic = topic.find({name: path[1]}).fetch()
-      }
-    }
 
-    window.routes = {
-      '/login': Login
-      , '/topics': headTopics
-      // , '/synergy/:topic': Topic
-      , add: function(route, component) {
-      }
+    var routes = {
+      '/login': Login,
+      '/:route...': Synergy
     }
+    var images = ['img/cardboard.jpg', 'img/paper.jpg', 'img/wood.jpg', 'img/papyrus.jpg', 'img/vintage.jpg', 'img/stone.jpg']
+    document.body.style.backgroundImage = 'url(' + 
+      images[Math.floor(Math.random()*images.length)] + ')'
 
     m.route.mode = "hash"
     m.route(document.body, '/', routes)
-
-
-
-
-    //m.module(document.getElementsByClassName('playContainer')[0], Player)
   })
 }
-
-// var topic = {
-//   name: 'Mithril',
-//   content: [
-//     {
-//       name: 'modules',
-//       content: [
-//         'require user and controller',
-//         {
-//           name: 'unloading',
-//           content: [
-//             'this.onunload',
-//             'Fly McQueen'
-//           ]
-//         },
-//         'Render Bender'
-//       ]
-//     },
-//     'Big Data'
-//   ]
-// }
-
-
-
 

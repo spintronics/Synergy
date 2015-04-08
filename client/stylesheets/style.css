@@ -1,0 +1,44 @@
+body{
+  background-color: #bcbcbc;
+  background-size: 100%;
+}
+a{
+  text-decoration: none;
+  font-size: 2em;
+}
+a:hover {
+  text-shadow: 0px 0px 0.5em;
+}
+
+
+input {
+  background-color: transparent;
+  border: 0px solid;
+  width: 100%;
+  height: 10%;
+  color: black;
+  font-size: 2em;
+  line-height: 2em;
+  overflow: word-wrap;
+}
+
+*:focus {
+    outline: 0;
+}
+
+
+::-webkit-input-placeholder {
+   color: #D44332;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: #D44332;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #D44332;  
+}
+
+:-ms-input-placeholder {  
+   color: #D44332;  
+}
